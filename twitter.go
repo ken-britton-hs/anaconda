@@ -238,7 +238,7 @@ func NewApiError(resp *http.Response) *ApiError {
 
 //query executes a query to the specified url, sending the values specified by form, and decodes the response JSON to data
 //method can be either _GET or _POST
-func (c TwitterApi) execQuery(urlStr string, form url.Values, data interface{}, method int) error {
+func (c TwitterApi) ExecQuery(urlStr string, form url.Values, data interface{}, method int) error {
 	switch method {
 	case _GET:
 		return c.apiGet(urlStr, form, data)
@@ -265,7 +265,7 @@ func (c *TwitterApi) throttledQuery() {
 			<-c.bucket.SpendToken(1)
 		}
 
-		err := c.execQuery(url, form, data, method)
+		err := c.ExecQuery(url, form, data, method)
 
 		// Check if Twitter returned a rate-limiting error
 		if err != nil {
