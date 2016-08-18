@@ -58,6 +58,8 @@ const (
 	BaseUrlV1     = "https://api.twitter.com/1"
 	BaseUrl       = "https://api.twitter.com/1.1"
 	UploadBaseUrl = "https://upload.twitter.com/1.1"
+	GET           = _GET
+	POST          = _POST
 )
 
 var oauthClient = oauth.Client{
